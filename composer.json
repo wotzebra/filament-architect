@@ -9,9 +9,9 @@
     "homepage": "https://github.com/wotzebra/filament-architect",
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.4",
         "filament/filament": "^4.0|^5.0",
-        "illuminate/contracts": "^10.0|^11.0|^12.0",
+        "illuminate/contracts": "^12.0|^13.0",
         "spatie/laravel-package-tools": "^1.12",
         "wotz/filament-image-or-video": "^2.0",
         "wotz/filament-link-picker": "^2.0",
@@ -20,8 +20,8 @@
     "require-dev": {
         "larastan/larastan": "^2.0|^3.0",
         "laravel/pint": "^1.0",
-        "nunomaduro/collision": "^7.0|^8.0",
-        "orchestra/testbench": "^8.0|^9.0|^10.0",
+        "nunomaduro/collision": "^8.0|^9.0",
+        "orchestra/testbench": "^10.0|^11.0",
         "pestphp/pest": "^2.0|^3.0|^4.0",
         "pestphp/pest-plugin-laravel": "^2.0|^3.0|^4.0",
         "phpstan/extension-installer": "^1.1|^2.0",
