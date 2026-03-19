@@ -1,10 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Access to an undefined property Wotz\\\\FilamentArchitect\\\\Livewire\\\\EditModal\\:\\:\\$form.$#"
-			count: 3
-			path: src/Livewire/EditModal.php
-		-
 			message: "#^Unsafe usage of new static\\(\\).$#"
 			count: 1
 			path: src/Engines/RenderEngine.php
@@ -16,10 +12,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<int,int\\>\\:\\:map\\(\\) expects callable\\(int, int\\)\\: Filament\\\\Forms\\\\Components\\\\RichEditor, Closure\\(string\\)\\: Filament\\\\Forms\\\\Components\\\\RichEditor given.$#"
 			count: 1
 			path: src/Filament/Architect/TextBlock.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Livewire/EditModal.php
 		-
 			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
 			count: 1
