@@ -13,9 +13,9 @@
         "filament/filament": "^4.0|^5.0",
         "illuminate/contracts": "^12.0|^13.0",
         "spatie/laravel-package-tools": "^1.12",
-        "wotz/filament-image-or-video": "^2.0",
-        "wotz/filament-link-picker": "^2.0",
-        "wotz/filament-media-library": "^4.0"
+        "wotz/filament-image-or-video": "^2.0|dev-copilot/update-package-php-8-5-laravel-13 as 2.1",
+        "wotz/filament-link-picker": "^2.0|dev-copilot/update-package-php-8-5-laravel-13 as 2.1",
+        "wotz/filament-media-library": "^4.0|dev-copilot/update-package-php-8-5-laravel-13 as 4.1"
     },
     "require-dev": {
         "larastan/larastan": "^2.0|^3.0",
