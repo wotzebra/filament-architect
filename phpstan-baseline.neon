@@ -1,86 +1,133 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Access to an undefined property Wotz\\\\FilamentArchitect\\\\Livewire\\\\EditModal\\:\\:\\$form.$#"
-			count: 3
-			path: src/Livewire/EditModal.php
-		-
-			message: "#^Unsafe usage of new static\\(\\).$#"
-			count: 1
-			path: src/Engines/RenderEngine.php
-		-
-			message: "#^Unsafe usage of new static\\(\\).$#"
-			count: 1
-			path: src/Filament/Architect/BaseBlock.php
-		-
-			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<int,int\\>\\:\\:map\\(\\) expects callable\\(int, int\\)\\: Filament\\\\Forms\\\\Components\\\\RichEditor, Closure\\(string\\)\\: Filament\\\\Forms\\\\Components\\\\RichEditor given.$#"
-			count: 1
-			path: src/Filament/Architect/TextBlock.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Livewire/EditModal.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Livewire/ArchitectPreview.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Filament/Fields/ArchitectInput.php
-		-
-			message: "#^Parameter \\#1 \\$view of method Filament\\\\Support\\\\Components\\\\ViewComponent\\:\\:view\\(\\) expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Filament/Components/ButtonComponent.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Filament/Architect/VideoTextBlock.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Filament/Architect/VideoBlock.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Filament/Architect/TextBlock.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Filament/Architect/TableBlock.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Filament/Architect/SpacerBlock.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Filament/Architect/SliderBlock.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Filament/Architect/MediaTextBlock.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Filament/Architect/MediaBlock.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Filament/Architect/EmbedBlock.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Filament/Architect/CtaBlock.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Filament/Architect/CardBlock.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
-			count: 1
-			path: src/Filament/Architect/ButtonBlock.php
-		-
-			message: "#^Parameter \\#1 \\$view of function view expects view-string\\|null, string given.$#"
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Engines/Architect.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Engines/RenderEngine.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Filament/Architect/BaseBlock.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Filament/Architect/ButtonBlock.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Filament/Architect/CardBlock.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Filament/Architect/CtaBlock.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Filament/Architect/EmbedBlock.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Filament/Architect/MediaBlock.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Filament/Architect/MediaTextBlock.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Filament/Architect/SliderBlock.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Filament/Architect/SpacerBlock.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Filament/Architect/TableBlock.php
+
+		-
+			message: '#^Parameter \#1 \$callback of method Illuminate\\Support\\Collection\<int,int\>\:\:map\(\) expects callable\(int, int\)\: Filament\\Forms\\Components\\RichEditor, Closure\(string\)\: Filament\\Forms\\Components\\RichEditor given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Filament/Architect/TextBlock.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Filament/Architect/TextBlock.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Filament/Architect/VideoBlock.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Filament/Architect/VideoTextBlock.php
+
+		-
+			message: '#^Parameter \#1 \$view of method Filament\\Support\\Components\\ViewComponent\:\:view\(\) expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Filament/Components/ButtonComponent.php
+
+		-
+			message: '''
+				#^Call to deprecated method actions\(\) of class Filament\\Tables\\Table\:
+				Use `recordActions\(\)` instead\.$#
+			'''
+			identifier: method.deprecated
+			count: 1
+			path: src/Filament/Resources/ArchitectTemplateResource.php
+
+		-
+			message: '''
+				#^Call to deprecated method bulkActions\(\) of class Filament\\Tables\\Table\:
+				Use `toolbarActions\(\)` instead\.$#
+			'''
+			identifier: method.deprecated
+			count: 1
+			path: src/Filament/Resources/ArchitectTemplateResource.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Livewire/ArchitectPreview.php
+
+		-
+			message: '#^Class Wotz\\FilamentArchitect\\Livewire\\EditModal not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Providers/FilamentArchitectServiceProvider.php
