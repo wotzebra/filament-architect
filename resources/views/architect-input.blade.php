@@ -52,8 +52,10 @@
                                     @if (count($state) > 1)
                                         <x-filament::icon-button
                                             color="gray"
-                                            icon="heroicon-o-arrows-up-down"
-                                            class="border-2 dark:bg-white/5 dark:hover:bg-white/10 dark:border-gray-700 cursor-move m-0"
+                                            :icon="\Filament\Support\Icons\Heroicon::OutlinedArrowsUpDown"
+                                            :label="__('filament-architect::admin.reorder row')"
+                                            :tooltip="__('filament-architect::admin.reorder row')"
+                                            class="bg-white shadow-sm ring-1 ring-gray-950/10 dark:bg-white/10 dark:ring-white/20 cursor-move m-0"
                                             :size="Size::Small"
                                             :icon-size="IconSize::Small"
                                             x-sortable-handle

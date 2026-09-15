@@ -17,6 +17,8 @@ return [
     'edit block' => 'Edit Block',
     'add block' => 'Add Block',
     'duplicate block' => 'Duplicate',
+    'reorder block' => 'Drag to reorder block',
+    'reorder row' => 'Drag to reorder row',
     'hide block' => 'Hide',
     'show block' => 'Show',
     'add block between' => 'Add Block Between',

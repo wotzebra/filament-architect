@@ -17,6 +17,8 @@ return [
     'edit block' => 'Blok bewerken',
     'add block' => 'Blok toevoegen',
     'duplicate block' => 'Dupliceren',
+    'reorder block' => 'Sleep om blok te herschikken',
+    'reorder row' => 'Sleep om rij te herschikken',
     'hide block' => 'Verbergen',
     'show block' => 'Tonen',
     'add block between' => 'Blok tussenvoegen',

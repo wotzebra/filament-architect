@@ -14,11 +14,11 @@
     style="grid-column: span {{ $block['width'] ?? 12 }};"
 >
     <div @class([
-        'relative grow bg-gray-50 dark:bg-gray-800 p-2 rounded-lg
-            border dark:border-gray-700 justify-between flex gap-2
+        'relative grow bg-gray-50 dark:bg-white/5 p-2 rounded-lg
+            ring-1 ring-gray-950/5 dark:ring-white/10 justify-between flex gap-2
             group @sm:p-4',
-        'bg-gray-50/50 dark:bg-gray-800/50 border-gray-200/50
-            dark:border-gray-700/50' => ! $shown
+        'bg-gray-50/50 dark:bg-white/[0.03] ring-gray-950/[0.03]
+            dark:ring-white/5' => ! $shown
     ])>
         <div @class([
             'flex flex-col text-sm',
@@ -50,13 +50,15 @@
 
         <div class="
             absolute top-2 right-2 flex gap-1
-            opacity-0 group-hover:opacity-100
+            opacity-0 group-hover:opacity-100 focus-within:opacity-100
         ">
             @if (count($row) > 1)
                 <x-filament::icon-button
                     color="gray"
-                    icon="heroicon-o-arrows-right-left"
-                    class="border-2 bg-white dark:bg-gray-800 dark:hover:bg-gray-700 dark:border-gray-700 dark:text-gray-100 dark:hover:text-white cursor-move m-0"
+                    :icon="\Filament\Support\Icons\Heroicon::OutlinedArrowsRightLeft"
+                    :label="__('filament-architect::admin.reorder block')"
+                    :tooltip="__('filament-architect::admin.reorder block')"
+                    class="bg-white shadow-sm ring-1 ring-gray-950/10 dark:bg-white/10 dark:ring-white/20 cursor-move m-0"
                     :size="Size::Small"
                     :icon-size="IconSize::Small"
                     x-sortable-handle
@@ -65,7 +67,6 @@
 
             @if ($hasDuplicateAction)
                 <x-filament-architect::icon-button
-                    class="dark:bg-gray-800/100 dark:hover:bg-gray-700/100 dark:text-gray-100 dark:hover:text-white"
                     :action="$getAction('duplicateBlock')"
                     :state-path="$statePath"
                     :arguments="[
@@ -78,7 +79,6 @@
 
             @if ($hasShownButton)
                 <x-filament-architect::icon-button
-                    class="dark:bg-gray-800/100 dark:hover:bg-gray-700/100 dark:text-gray-100 dark:hover:text-white"
                     :action="$getAction($shown ? 'enableBlock': 'disableBlock')"
                     :state-path="$statePath"
                     :arguments="[
@@ -90,7 +90,6 @@
             @endif
 
             <x-filament-architect::icon-button
-                class="dark:bg-gray-800/100 dark:hover:bg-gray-700/100 dark:text-gray-100 dark:hover:text-white"
                 :action="$getAction('editBlock')"
                 :state-path="$statePath"
                 :arguments="[
@@ -105,7 +104,6 @@
 
             <x-filament-architect::icon-button
                 color="danger"
-                class="dark:bg-gray-800/100 dark:hover:bg-gray-700/100 dark:text-custom-500 dark:hover:text-custom-400"
                 :action="$getAction('deleteBlock')"
                 :state-path="$statePath"
                 :arguments="[
@@ -123,6 +121,7 @@
                 :action="$getAction('addBlockBetween')"
                 :state-path="$statePath"
                 :arguments="['row' => $rowKey, 'insertAfter' => $uuid]"
+                :tooltip="__('filament-architect::admin.add block between')"
             />
         </div>
     @endif
