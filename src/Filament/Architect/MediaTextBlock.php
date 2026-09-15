@@ -2,12 +2,12 @@
 
 namespace Wotz\FilamentArchitect\Filament\Architect;
 
-use Wotz\FilamentArchitect\ArchitectFormats;
-use Wotz\MediaLibrary\Filament\AttachmentInput;
-use Wotz\MediaLibrary\Models\Attachment;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\RichEditor;
 use Illuminate\View\View;
+use Wotz\FilamentArchitect\ArchitectFormats;
+use Wotz\MediaLibrary\Filament\AttachmentInput;
+use Wotz\MediaLibrary\Support\Config;
 
 class MediaTextBlock extends BaseBlock
 {
@@ -17,7 +17,7 @@ class MediaTextBlock extends BaseBlock
     {
         return view('filament-architect::architect.media-text-block', [
             'alignment' => $data['alignment'] ?? '',
-            'image' => Attachment::find($data['image'] ?? null),
+            'image' => Config::attachmentModel()::find($data['image'] ?? null),
             'description' => $data['description'] ?? '',
         ]);
     }

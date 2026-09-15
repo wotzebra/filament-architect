@@ -2,11 +2,11 @@
 
 namespace Wotz\FilamentArchitect\Filament\Architect;
 
-use Wotz\FilamentArchitect\ArchitectFormats;
-use Wotz\MediaLibrary\Filament\AttachmentInput;
-use Wotz\MediaLibrary\Models\Attachment;
 use Filament\Forms\Components\Repeater;
 use Illuminate\View\View;
+use Wotz\FilamentArchitect\ArchitectFormats;
+use Wotz\MediaLibrary\Filament\AttachmentInput;
+use Wotz\MediaLibrary\Support\Config;
 
 class SliderBlock extends BaseBlock
 {
@@ -15,7 +15,7 @@ class SliderBlock extends BaseBlock
         $images = collect($data['slider'] ?? [])->pluck('image')->filter();
 
         return view('filament-architect::architect.slider-block', [
-            'images' => Attachment::find($images)->filter(),
+            'images' => Config::attachmentModel()::find($images)->filter(),
         ]);
     }
 

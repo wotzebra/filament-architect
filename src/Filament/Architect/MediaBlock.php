@@ -2,14 +2,14 @@
 
 namespace Wotz\FilamentArchitect\Filament\Architect;
 
-use Wotz\FilamentArchitect\ArchitectFormats;
-use Wotz\FilamentArchitect\Facades\ArchitectConfig;
-use Wotz\MediaLibrary\Filament\AttachmentInput;
-use Wotz\MediaLibrary\Models\Attachment;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Get;
 use Illuminate\View\View;
+use Wotz\FilamentArchitect\ArchitectFormats;
+use Wotz\FilamentArchitect\Facades\ArchitectConfig;
+use Wotz\MediaLibrary\Filament\AttachmentInput;
+use Wotz\MediaLibrary\Support\Config;
 
 class MediaBlock extends BaseBlock
 {
@@ -18,7 +18,7 @@ class MediaBlock extends BaseBlock
         return view('filament-architect::architect.media-block', [
             'width' => $data['width'] ?? null,
             'images' => collect($data['images'] ?? [])->map(function (array $image) {
-                return Attachment::find($image['image'] ?? null);
+                return Config::attachmentModel()::find($image['image'] ?? null);
             })->filter(),
         ]);
     }
