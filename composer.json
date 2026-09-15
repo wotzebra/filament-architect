@@ -1,5 +1,5 @@
 {
-    "name": "codedor/filament-architect",
+    "name": "wotz/filament-architect",
     "description": "Extended Builder field for Filament",
     "keywords": [
         "codedor",
@@ -17,6 +17,9 @@
         "filament/filament": "^3.1",
         "illuminate/contracts": "^10.0|^11.0|^12.0",
         "spatie/laravel-package-tools": "^1.12"
+    },
+    "replace": {
+        "codedor/filament-architect": "self.version"
     },
     "require-dev": {
         "laravel/pint": "^1.0",

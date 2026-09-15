@@ -2,7 +2,14 @@
 
 namespace Codedor\FilamentArchitect\Tests;
 
+use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
+use BladeUI\Icons\BladeIconsServiceProvider;
 use Codedor\FilamentArchitect\Providers\FilamentArchitectServiceProvider;
+use Filament\Actions\ActionsServiceProvider;
+use Filament\Forms\FormsServiceProvider;
+use Filament\Infolists\InfolistsServiceProvider;
+use Filament\Notifications\NotificationsServiceProvider;
+use Filament\Support\SupportServiceProvider;
 use FilamentTiptapEditor\Actions\LinkAction;
 use FilamentTiptapEditor\Enums\TiptapOutput;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -63,8 +70,15 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            FilamentArchitectServiceProvider::class,
+            BladeIconsServiceProvider::class,
+            BladeHeroiconsServiceProvider::class,
             LivewireServiceProvider::class,
+            SupportServiceProvider::class,
+            ActionsServiceProvider::class,
+            FormsServiceProvider::class,
+            InfolistsServiceProvider::class,
+            NotificationsServiceProvider::class,
+            FilamentArchitectServiceProvider::class,
         ];
     }
 }

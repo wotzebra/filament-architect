@@ -15,9 +15,9 @@ use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Filament\Notifications\Notification;
 use Filament\Support\Enums\ActionSize;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
@@ -62,17 +62,6 @@ class ArchitectInput extends Field
         ]);
 
         $this->registerListeners([
-            'filament-architect::editedBlock' => [
-                function (self $component, string $statePath, array $arguments): void {
-                    if ($statePath !== $component->getStatePath()) {
-                        return;
-                    }
-
-                    $items = $component->getState();
-                    $items[$arguments['row']][$arguments['uuid']]['data'] = $arguments['form']['state'];
-                    $component->state($items);
-                },
-            ],
             'reorder-row' => [
                 function (self $component, string $statePath, array $data): void {
                     if ($statePath !== $component->getStatePath()) {
@@ -239,17 +228,32 @@ class ArchitectInput extends Field
             ->color('gray')
             ->size(ActionSize::Small)
             ->closeModalByClickingAway(false)
-            ->modalSubmitAction(false)
-            ->modalCancelAction(false)
-            ->modalContent(fn (self $component) => view(
-                'filament-architect::edit-modal',
-                [
-                    // TODO: This is a hack to get the arguments to the modal
-                    // https://github.com/filamentphp/filament/issues/8763
-                    'arguments' => Arr::last($this->getLivewire()->mountedFormComponentActionsArguments),
-                    'statePath' => $component->getStatePath(),
-                ]
-            ));
+            ->modalSubmitActionLabel(__('filament-architect::admin.submit'))
+            ->modalCancelActionLabel(__('filament-architect::admin.cancel'))
+            ->fillForm(fn (array $arguments): array => $arguments['block']['data'] ?? [])
+            ->form(fn (array $arguments): array => [
+                TextInput::make('working_title')
+                    ->label(__('filament-architect::admin.working title'))
+                    ->helperText(__('filament-architect::admin.working title help'))
+                    ->required(config('filament-architect.enable-slug-in-block'))
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(fn (Set $set, ?string $state, Get $get) => $get('slug') || $set('slug', Str::slug($state))),
+
+                TextInput::make('slug')
+                    ->hidden(! config('filament-architect.enable-slug-in-block'))
+                    ->helperText('This slug will be used to make anchor links. Modifying this field will break existing anchor links to this block'),
+
+                ...$arguments['blockClassName']::make()
+                    ->locales($arguments['locales'])
+                    ->schema(),
+            ])
+            ->action(function (self $component, array $arguments, array $data): void {
+                $items = $component->getState();
+
+                $items[$arguments['row']][$arguments['uuid']]['data'] = $data;
+
+                $component->state($items);
+            });
     }
 
     public function getBaseAddBlockAction(string $name): Action
