@@ -15,7 +15,10 @@
 
 @php
     $wireClickActionArguments = \Illuminate\Support\Js::from($arguments);
-    $wireClickActionMeta = \Illuminate\Support\Js::from(['schemaComponent' => str_replace('data.', 'form.', $statePath)]);
+    // The key of the field the action belongs to. Deriving it from the state path broke as soon as
+    // the field sat in a tab or section: their keys are part of the component key, not of the path.
+    $schemaComponent = $action->getSchemaComponent()?->getKey() ?? str_replace('data.', 'form.', $statePath);
+    $wireClickActionMeta = \Illuminate\Support\Js::from(['schemaComponent' => $schemaComponent]);
     $wireClickAction = "mountAction('{$action->getName()}', {$wireClickActionArguments}, {$wireClickActionMeta})";
 
     $isTextButton = filled($label);

@@ -66,7 +66,7 @@
                                 <div
                                     class="grow w-full grid gap-2 grid-cols-12"
                                     x-sortable
-                                    x-on:end.stop="$wire.callSchemaComponentMethod(@js($key), 'reorder-column', {
+                                    x-on:end.stop="$wire.callSchemaComponentMethod(@js($key), 'reorderColumn', {
                                         newKeys: $event.target.sortable.toArray(),
                                         row: '{{ $rowKey }}',
                                     })"
