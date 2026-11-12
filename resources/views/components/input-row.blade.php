@@ -8,7 +8,7 @@
 @endphp
 
 <div
-    :key="$uuid"
+    wire:key="{{ $statePath }}.{{ $uuid }}"
     class="w-full flex gap-2 items-center"
     x-sortable-item="{{ $uuid }}"
     style="grid-column: span {{ $block['width'] ?? 12 }};"

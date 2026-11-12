@@ -2,11 +2,18 @@
 
 namespace Wotz\FilamentArchitect\Tests;
 
-use Wotz\FilamentArchitect\Providers\FilamentArchitectServiceProvider;
+use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
+use BladeUI\Icons\BladeIconsServiceProvider;
+use Filament\Actions\ActionsServiceProvider;
+use Filament\Forms\FormsServiceProvider;
+use Filament\Infolists\InfolistsServiceProvider;
+use Filament\Schemas\SchemasServiceProvider;
+use Filament\Support\SupportServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\File;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Wotz\FilamentArchitect\Providers\FilamentArchitectServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -58,6 +65,13 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
+            BladeIconsServiceProvider::class,
+            BladeHeroiconsServiceProvider::class,
+            SupportServiceProvider::class,
+            ActionsServiceProvider::class,
+            FormsServiceProvider::class,
+            SchemasServiceProvider::class,
+            InfolistsServiceProvider::class,
             FilamentArchitectServiceProvider::class,
             LivewireServiceProvider::class,
         ];
